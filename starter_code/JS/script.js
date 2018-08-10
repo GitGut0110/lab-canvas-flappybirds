@@ -8,7 +8,6 @@ window.onload = function() {
   };
 
   function startGame() {
-    faby.update();
   }
 
 };

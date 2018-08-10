@@ -1,36 +1,22 @@
-function Player(w, h, speedX, speedY, g, gSpeed) {
+function Player(x,y,w, h, speedX, speedY, g, gSpeed) {
   this.w = w;
   this.h = h;
   this.speedX = speedX;
   this.speedY = speedY;
   this.g = g;
   this.gSpeed = gSpeed;
+  this.x = x;
+  this.y = y;
+  this.update = function(){
+    // img = new Image();
+    // src = "/starter_code/images/flappy.png";
+    console.log ("draw flappy")
+    //  ctx.drawImage(this.img, 200, 200, 300,300)
+    ctx.rect(300,200,200,200)
+    //ctx.fill();
+  }
 }
-Player.prototype.update = function() {
-  console.log("update");
-  let img = new Image();
-  img.onload = function() {
-    ctx.drawImage(img, 100, 100, 50,50);
-  };
-  img.src = "images/flappy.png";
-};
 
 Player.prototype.newPos = function() {
   console.log("newPos");
-    this.x += this.speedX;
-    this.y += this.speedY; 
 }
-this.left   = function() { return this.x                 }
-this.right  = function() { return (this.x + this.width)  }
-this.top    = function() { return this.y                 }
-this.bottom = function() { return this.y + (this.height) }
-
-                                                            this.crashWith = function(obstacle) {
-  return !((this.bottom() < obstacle.top())    ||
-           (this.top()    > obstacle.bottom()) ||
-           (this.right()  < obstacle.left())   ||
-           (this.left()   > obstacle.right())) 
-}
-
-
-// };
