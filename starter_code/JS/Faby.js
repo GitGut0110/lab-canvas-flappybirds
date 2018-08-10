@@ -10,14 +10,26 @@ function Player(x, y, w, h, speedX, speedY, g, gSpeed) {
   this.img = new Image();
   this.img.src = "images/flappy.png";
   this.update = function() {
-    // img = new Image();
-    //console.log("draw flappy");
     ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
     //ctx.rect(300, 200, 200, 200);
     //ctx.fill();
   };
+  this.moveUp = function() {
+    console.log('flapin')
+    if(this.y+this.h/2 <= 0){
+      this.Speedy = 0
+    }else{
+    this.speedY -= 2*g;
+  };}
+  this.dead = function() {
+    if (this.y > 600) {
+      return true;
+    }
+  };
 }
 
 Player.prototype.newPos = function() {
-  console.log("newPos");
+  // console.log("newPos");
+  this.y += this.speedY;
+  this.speedY += this.g;
 };
