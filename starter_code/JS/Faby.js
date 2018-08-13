@@ -14,22 +14,22 @@ function Player(x, y, w, h, speedX, speedY, g, gSpeed) {
     //ctx.rect(300, 200, 200, 200);
     //ctx.fill();
   };
+  this.newPos = function() {
+    this.y += this.speedY;
+  };
   this.moveUp = function() {
-    console.log('flapin')
-    if(this.y+this.h/2 <= 0){
-      this.Speedy = 0
-    }else{
-    this.speedY -= 2*g;
-  };}
-  this.dead = function() {
-    if (this.y > 600) {
-      return true;
+    if (this.y <= 10) {
+      this.speedY = 0;
+    } else {
+      this.speedY -= 8;
     }
   };
-}
+  this.stop = function() {
+    if (this.y > 600) {
+      console.log('Game over')
+         clearInterval(interval);
+         isGameStarted = false;
+  }}
 
-Player.prototype.newPos = function() {
-  // console.log("newPos");
-  this.y += this.speedY;
-  this.speedY += this.g;
-};
+  // END OF CONSTRUCTOR do not touch!!
+}
